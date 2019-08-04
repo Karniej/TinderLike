@@ -1,10 +1,11 @@
 import React, { useRef } from 'react'
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
+import { string } from 'prop-types'
 import Swiper from 'react-native-deck-swiper'
 import { colors, photoCards } from './constants'
 import { Card, IconButton } from './components'
 
-const { height, width } = Dimensions.get('window')
+const { height } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   container: {
@@ -47,6 +48,11 @@ const OverlayLabel = ({ label, color }) => (
   </View>
 )
 
+OverlayLabel.propTypes = {
+  label: string,
+  color: string,
+}
+
 const App = () => {
   const swiper = useRef(null)
 
@@ -71,10 +77,7 @@ const App = () => {
           stackSize={2}
           infinite
           showSecondCard
-          stackAnimationFriction={10}
           animateOverlayLabelsOpacity
-          inputOverlayLabelsOpacityRangeX={[-width / 3, -width / 4, 0, width / 4, width / 3]}
-          outputOverlayLabelsOpacityRangeX={[1, 0, 0, 0, 1]}
           overlayLabels={{
             left: {
               title: 'NOPE',

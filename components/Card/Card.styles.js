@@ -37,5 +37,7 @@ export default StyleSheet.create({
     fontSize: 20,
     color: colors.white,
     fontFamily: 'Avenir',
+    textShadowColor: colors.black,
+    textShadowRadius: 10,
   },
 })
