@@ -21,7 +21,7 @@ module.exports = {
     'react-native/no-unused-styles': 2,
     'react-native/split-platform-components': 2,
     'react-native/no-inline-styles': 2,
-    'react-native/no-color-literals': 2,
+    'react-native/no-color-literals': 0,
     'import/prefer-default-export': 0,
     'import/no-cycle': [1, { maxDepth: 1 }],
     'no-unused-vars': [2, { argsIgnorePattern: '^_' }],

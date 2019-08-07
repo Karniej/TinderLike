@@ -1,13 +1,12 @@
 import { StyleSheet } from 'react-native'
-import { colors } from '../../constants'
 
 export default StyleSheet.create({
   singleButton: {
-    backgroundColor: colors.transparent,
+    backgroundColor: 'transparent',
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: colors.black,
+    shadowColor: 'black',
     shadowOffset: {
       width: 0,
       height: 2,

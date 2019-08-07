@@ -1,11 +1,10 @@
 import React from 'react'
-import { View, Text, Image, ImageSourcePropType, TouchableOpacity } from 'react-native'
+import { View, Text, Image, ImageSourcePropType } from 'react-native'
 import { shape, string, number } from 'prop-types'
 import styles from './Card.styles'
 
 const Card = ({ card }) => (
-  <TouchableOpacity
-    activeOpacity={1}
+  <View
     style={styles.card}
   >
     <Image
@@ -18,9 +17,10 @@ const Card = ({ card }) => (
         {`${card.name}, ${card.age}`}
       </Text>
     </View>
-  </TouchableOpacity>
+  </View>
 )
 
+/* Using isRequired propType helps you identifying problems with displaying data faster. */
 Card.propTypes = {
   card: shape({
     photo: ImageSourcePropType,

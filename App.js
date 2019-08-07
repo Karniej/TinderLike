@@ -1,64 +1,16 @@
-import React, { useRef } from 'react'
-import { View, Text, StyleSheet, Dimensions } from 'react-native'
-import { string } from 'prop-types'
+import React, { useRef, Component } from 'react'
+import { View, Text } from 'react-native'
 import Swiper from 'react-native-deck-swiper'
-import { colors, photoCards } from './constants'
-import { Card, IconButton } from './components'
-
-const { height } = Dimensions.get('window')
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'space-between',
-  },
-  swiperContainer: {
-    height: height - 250,
-  },
-  buttonsContainer: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row',
-    paddingHorizontal: '15%',
-  },
-  copyright: {
-    textAlign: 'center',
-    fontSize: 10,
-    color: colors.black,
-    paddingBottom: 20,
-    fontFamily: 'Avenir',
-  },
-  overlayLabel: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    borderWidth: 2,
-    borderRadius: 10,
-  },
-  overlayLabelText: {
-    fontSize: 25,
-    fontFamily: 'Avenir',
-    textAlign: 'center',
-  },
-})
-
-const OverlayLabel = ({ label, color }) => (
-  <View style={[styles.overlayLabel, { borderColor: color }]}>
-    <Text style={[styles.overlayLabelText, { color }]}>{label}</Text>
-  </View>
-)
-
-OverlayLabel.propTypes = {
-  label: string,
-  color: string,
-}
+import { photoCards } from './constants'
+import { Card, IconButton, OverlayLabel } from './components'
+import styles from './App.styles'
 
 const App = () => {
-  const swiper = useRef(null)
+  const useSwiper = useRef(null)
 
-  const handleOnSwipedLeft = () => swiper.current.swipeLeft()
-  const handleOnSwipedTop = () => swiper.current.swipeTop()
-  const handleOnSwipedRight = () => swiper.current.swipeRight()
+  const handleOnSwipedLeft = () => useSwiper.current.swipeLeft()
+  const handleOnSwipedTop = () => useSwiper.current.swipeTop()
+  const handleOnSwipedRight = () => useSwiper.current.swipeRight()
 
   return (
     <View
@@ -66,14 +18,13 @@ const App = () => {
     >
       <View style={styles.swiperContainer}>
         <Swiper
-          bounces={false}
-          ref={swiper}
+          ref={useSwiper}
           animateCardOpacity
           containerStyle={styles.container}
           cards={photoCards}
           renderCard={card => <Card card={card} />}
           cardIndex={0}
-          backgroundColor={colors.white}
+          backgroundColor="white"
           stackSize={2}
           infinite
           showSecondCard
@@ -81,26 +32,18 @@ const App = () => {
           overlayLabels={{
             left: {
               title: 'NOPE',
-              element: <OverlayLabel label="NOPE" color={colors.nope} />,
+              element: <OverlayLabel label="NOPE" color="#E5566D" />,
               style: {
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'flex-end',
-                  justifyContent: 'flex-start',
-                  marginTop: 30,
-                  marginLeft: -30,
-                },
+                wrapper: styles.overlayWrapper,
               },
             },
             right: {
               title: 'LIKE',
-              element: <OverlayLabel label="LIKE" color={colors.like} />,
+              element: <OverlayLabel label="LIKE" color="#4CCC93" />,
               style: {
                 wrapper: {
-                  flexDirection: 'column',
+                  ...styles.overlayWrapper,
                   alignItems: 'flex-start',
-                  justifyContent: 'flex-start',
-                  marginTop: 30,
                   marginLeft: 30,
                 },
               },
@@ -112,20 +55,20 @@ const App = () => {
         <IconButton
           name="close"
           onPress={handleOnSwipedLeft}
-          color={colors.white}
-          backgroundColor={colors.nope}
+          color="white"
+          backgroundColor="#E5566D"
         />
         <IconButton
           name="star"
           onPress={handleOnSwipedTop}
-          color={colors.white}
-          backgroundColor={colors.favorite}
+          color="white"
+          backgroundColor="#3CA3FF"
         />
         <IconButton
           name="heart"
           onPress={handleOnSwipedRight}
-          color={colors.white}
-          backgroundColor={colors.like}
+          color="white"
+          backgroundColor="#4CCC93"
         />
       </View>
       <View style={styles.swipeTextContainer}>

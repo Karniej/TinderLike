@@ -1,15 +1,16 @@
 import { StyleSheet, Dimensions } from 'react-native'
-import { colors } from '../../constants'
 
 const { height } = Dimensions.get('window')
+
 export default StyleSheet.create({
   card: {
+    /* Setting the height according to the screen height . */
     height: height - 300,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: 'white',
     borderRadius: 5,
-    shadowColor: colors.black,
+    shadowColor: 'black',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -35,9 +36,9 @@ export default StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: 20,
-    color: colors.white,
+    color: 'white',
     fontFamily: 'Avenir',
-    textShadowColor: colors.black,
+    textShadowColor: 'black',
     textShadowRadius: 10,
   },
 })
