@@ -71,6 +71,12 @@ const photoCards = [
     photo: require('../assets/david-yanutama-5AoO7dBurMw-unsplash.jpg'),
     key: "5AoO7dBurMw'",
   },
+  {
+    name: 'Pawel Karniej',
+    age: 28,
+    photo: require('../assets/kYov4x7nTtuOIlGu7HKTQw_thumb_138.jpg'),
+    key: 'kYov4x7nTtuOIlGu7HKTQw',
+  },
 ]
 
 export default photoCards
