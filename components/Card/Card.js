@@ -20,13 +20,12 @@ const Card = ({ card }) => (
   </View>
 )
 
-/* Using isRequired propType helps you identifying problems with displaying data faster. */
 Card.propTypes = {
   card: shape({
     photo: ImageSourcePropType,
     name: string,
     age: number,
-  }),
+  }).isRequired,
 }
 
 export default Card
